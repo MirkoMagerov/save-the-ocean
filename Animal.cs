@@ -1,40 +1,40 @@
-using System;
-using System.Net.NetworkInformation;
-
-namespace Save_the_ocean
+namespace SaveTheOcean
 {
     public abstract class Animal
     {
-        const string DEF_NAME = "Animal per defecte", DEF_SUPERFAMILIA = "Superfamília per defecte", DEF_ESPECIE = "Especie per defecte";
-        const double DEF_PES = 15.5;
-
-        public string Nom { get; set; }
-        public string SuperFamilia { get; set; }
+        public string Nombre { get; set; }
+        public string Superfamilia { get; set; }
         public string Especie { get; set; }
-        public double Pes { get; set; }
+        public double PesoAproximado { get; set; }
 
-        Animal(string nom, string superFamilia, string especie, double pes)
+        public Animal(string nombre, string superFamilia, string especie, double pesoAproximado)
         {
-            Nom = nom;
-            SuperFamilia = superFamilia;
+            Nombre = nombre;
+            Superfamilia = superFamilia;
             Especie = especie;
-            Pes = pes;
+            PesoAproximado = pesoAproximado;
         }
 
-        Animal() : this(DEF_NAME, DEF_SUPERFAMILIA, DEF_ESPECIE, DEF_PES)
+        /// <summary>
+        /// Método abstracto para sobreescribir dependiendo del animal a tratar
+        /// </summary>
+        /// <param name="localizacion">Localización actual del animal</param>
+        /// <param name="gradoAfectacion">Grado de afectación del animal</param>
+        /// <returns></returns>
+        public abstract int AplicarTratamiento(string localizacion, int gradoAfectacion);
+
+        /// <summary>
+        /// Método que sobreescribe el ToString mostrando todos los atributos del animal
+        /// </summary>
+        /// <returns>Devuelve un string</returns>
+        public override string ToString()
         {
-
-        }
-
-        public abstract int CalculateNewGa(int ga, int x);
-
-        public int GetXP(int ga)
-        {
-            if (ga >= 5)
-            {
-                return -20;
-            }
-            return 50;
+            return $"Información del Animal:\n" +
+                    $"------------------------\n" +
+                    $"Nombre: {Nombre}\n" +
+                    $"Superfamilia: {Superfamilia}\n" +
+                    $"Especie: {Especie}\n" +
+                    $"Peso Aproximado: {PesoAproximado} kg";
         }
     }
 }
