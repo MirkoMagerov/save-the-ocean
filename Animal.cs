@@ -1,6 +1,6 @@
 namespace SaveTheOcean
 {
-    public abstract class Animal
+    public abstract class Animal : ITransportable
     {
         public string Nombre { get; set; }
         public string Superfamilia { get; set; }
@@ -16,14 +16,6 @@ namespace SaveTheOcean
         }
 
         /// <summary>
-        /// Método abstracto para sobreescribir dependiendo del animal a tratar
-        /// </summary>
-        /// <param name="localizacion">Localización actual del animal</param>
-        /// <param name="gradoAfectacion">Grado de afectación del animal</param>
-        /// <returns></returns>
-        public abstract int AplicarTratamiento(string localizacion, int gradoAfectacion);
-
-        /// <summary>
         /// Método que sobreescribe el ToString mostrando todos los atributos del animal
         /// </summary>
         /// <returns>Devuelve un string</returns>
@@ -36,5 +28,7 @@ namespace SaveTheOcean
                     $"Especie: {Especie}\n" +
                     $"Peso Aproximado: {PesoAproximado} kg";
         }
+
+        public abstract int AplicarTratamiento(string localizacion, int gradoAfectacion);
     }
 }

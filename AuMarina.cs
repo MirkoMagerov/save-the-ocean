@@ -1,8 +1,8 @@
 namespace SaveTheOcean
 {
-    public class AuMarina : Animal
+    public class AveMarina : Animal
     {
-        public AuMarina() : base(GenerarNombreAleatorio(), "Au Marina", "Diomedea exulans", GenerarPesoAproximado())
+        public AveMarina() : base(GenerarNombreAleatorio(), "Ave Marina", "Diomedea exulans", GenerarPesoAproximado())
         {
 
         }

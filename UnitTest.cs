@@ -37,7 +37,7 @@ namespace Tests
         public void TestGradoAfectacionConCRAM_AuMarina()
         {
             // Arrange
-            Animal auMarina = new AuMarina();
+            Animal auMarina = new AveMarina();
             string localizacion = "En el CRAM";
             int gradoAfectacion = 10;
             int expectedGradoAfectacion = 5;
@@ -53,7 +53,7 @@ namespace Tests
         public void TestGradoAfectacionSinCRAM_AuMarina()
         {
             // Arrange
-            Animal auMarina = new AuMarina();
+            Animal auMarina = new AveMarina();
             string localizacion = "Fuera del CRAM";
             int gradoAfectacion = 10;
             int expectedGradoAfectacion = gradoAfectacion - (gradoAfectacion * gradoAfectacion); // Calculamos el valor esperado
@@ -69,7 +69,7 @@ namespace Tests
         public void GenerarNombreAleatorio()
         {
             string[] nombres = ["Oumou", "Valpa", "Dory"];
-            Animal auMarina = new AuMarina();
+            Animal auMarina = new AveMarina();
 
             Assert.IsTrue(nombres.Contains(auMarina.Nombre));
         }
@@ -78,20 +78,20 @@ namespace Tests
         public void GenerarPesoAproximado()
         {
             Random random = new Random();
-            Animal auMarina = new AuMarina();
+            Animal auMarina = new AveMarina();
             Assert.IsTrue(auMarina.PesoAproximado >= 6 && auMarina.PesoAproximado <= 12);
         }
 
         [TestMethod]
         public void EleccionCorrecta_Correcta()
         {
-            Assert.IsTrue(Program.EleccionCorrecta(1, 5, 3));
+            Assert.IsTrue(Helper.EleccionCorrecta(1, 5, 3));
         }
 
         [TestMethod]
         public void EleccionCorrecta_Incorrecta()
         {
-            Assert.IsFalse(Program.EleccionCorrecta(1, 5, 7));
+            Assert.IsFalse(Helper.EleccionCorrecta(1, 5, 7));
         }
     }
 }
